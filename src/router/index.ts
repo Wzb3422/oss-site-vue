@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
+import Login from '../views/Login.vue'
 import Home from '../views/Home.vue'
+import Bucket from '../views/Bucket.vue'
 
 Vue.use(VueRouter)
 
@@ -8,7 +10,17 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    children: [
+      {
+        path: '',
+        component: Login
+      },
+      {
+        path: 'bucket',
+        component: Bucket
+      }
+    ]
   },
   {
     path: '/about',
